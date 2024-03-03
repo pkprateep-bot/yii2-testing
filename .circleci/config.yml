@@ -23,22 +23,20 @@ jobs:
       # Install sshpass
       - run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      # Zip the code
-      - run:
-          name: Zip code
-          command: zip -r code.zip .
-
-      # Copy code.zip to server
-      - run:
-          name: Copy code to server
-          command: sshpass -p "${PASSWORDYII2}" scp -v -o StrictHostKeyChecking=no code.zip ${USERNAMEYII2}@${IPYII2}:/var/www/html/tests/
-
-      # # Deploy via SSH
+      # # Zip the code
       # - run:
-      #     name: Deploy via SSH
-      #     command: |
-      #       sudo sshpass -p '${PASSWORDYII2}' \
-      #       sudo ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && git clone https://github.com/pkprateep-bot/yii2-basic-config && echo "Deployment successful!"' 
+      #     name: Zip code
+      #     command: zip -r code.zip .
+
+      # # Copy code.zip to server
+      # - run:
+      #     name: Copy code to server
+      #     command: sshpass -p "${PASSWORDYII2}" scp -v -o StrictHostKeyChecking=no code.zip ${USERNAMEYII2}@${IPYII2}:/var/www/html/tests/
+
+      # Deploy via SSH
+      - run:
+          name: Deploy via SSH
+          command: sshpass -p '${PASSWORDYII2}' sudo ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && git clone https://github.com/pkprateep-bot/yii2-basic-config && echo "Deployment successful!"' 
 
 # Orchestrate our job run sequence
 workflows:
