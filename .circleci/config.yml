@@ -36,7 +36,7 @@ jobs:
       # Deploy via SSH
       - run:
           name: Deploy via SSH
-          command: sshpass -p '${PASSWORDYII2}' sudo ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && git clone https://github.com/pkprateep-bot/yii2-basic-config && echo "Deployment successful!"' 
+          command: sshpass -p "${PASSWORDYII2}" sudo ssh -v -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && git clone https://github.com/pkprateep-bot/yii2-basic-config && echo "Deployment successful!"'
 
 # Orchestrate our job run sequence
 workflows:
