@@ -39,8 +39,8 @@ jobs:
       - run:
           name: Deploy via SSH
           command: |
-            sshpass -p '${PASSWORDYII2}' \
-            ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'echo "Deployment successful!"' 
+            sudo sshpass -p '${PASSWORDYII2}' \
+            sudo ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'echo "Deployment successful!"' 
 
 # Orchestrate our job run sequence
 workflows:
