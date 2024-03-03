@@ -40,7 +40,7 @@ jobs:
           name: Deploy via SSH
           command: |
             sshpass -p '${PASSWORDYII2}' \
-            ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && unzip -o code.zip && echo "Deployment successful!"'
+            ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && unzip -o code.zip && echo "Deployment successful!"' 
 
 # Orchestrate our job run sequence
 workflows:
