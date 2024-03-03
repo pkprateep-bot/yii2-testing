@@ -28,19 +28,19 @@ jobs:
           name: Zip code
           command: zip -r code.zip .
 
-      # Copy code.zip to server
-      - run:
-          name: Copy code to server
-          command: |
-            sshpass -p '${PASSWORDYII2}' \
-            scp -o StrictHostKeyChecking=no code.zip ${USERNAMEYII2}@${IPYII2}:/var/www/html/tests/
+      # # Copy code.zip to server
+      # - run:
+      #     name: Copy code to server
+      #     command: |
+      #       sshpass -p '${PASSWORDYII2}' \
+      #       scp -o StrictHostKeyChecking=no code.zip ${USERNAMEYII2}@${IPYII2}:/var/www/html/tests/
 
       # Deploy via SSH
       - run:
           name: Deploy via SSH
           command: |
             sshpass -p '${PASSWORDYII2}' \
-            ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && unzip -o code.zip && echo "Deployment successful!"' 
+            ssh -o StrictHostKeyChecking=no ${USERNAMEYII2}@${IPYII2} 'cd /var/www/html/tests && https://github.com/pkprateep-bot/yii2-basic-config && echo "Deployment successful!"' 
 
 # Orchestrate our job run sequence
 workflows:
